@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Form id="studentForm">
+        <h1>Student Managemet</h1>
+        <div>
+            <label for="">Student Id</label>
+            <input id="studentId" type="text">
+        </div>
+        <div>
+            <label for="">Student Name</label>
+            <input id="studentName" type="text">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <input id="age" type="text">
+        </div>
+        <div>
+            <label for="">Phone</label>
+            <input id="phone" type="text">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input id="email" type="text">
+        </div>
+        <button>Create</button>
+    </Form>
+    <div id="studentInfo"></div>
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const studentId = document.getElementById('studentId').value;
+    const studentName = document.getElementById('studentName').value;
+    const age = document.getElementById('age').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    if (!(studentId.length === 6)) {
+        alert('Mã sinh viên phải có 6 ký tự');
+        return;
+    }
+    if (!studentName) {
+        alert('Tên sinh viên không được để trống');
+        return;
+    }
+    if (!(age >= 18)) {
+        alert('Tuổi phải lớn hơn hoặc bằng 18');
+        return;
+    }
+    const phonePattern = /^([0-9]{10})$/;
+    if (!phonePattern.test(phone)) {
+        alert('Số điện thoại không hợp lệ');
+        return;
+    }
+    const emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    if (!emailPattern.test(email)) {
+        alert('Email không hợp lệ');
+        return;
+    }
+    const studentInfo = document.getElementById('studentInfo');
+    studentInfo.innerHTML = `
+        <h2>Thông tin sinh viên</h2>
+        <p>ID: ${studentId}</p>
+        <p>Name: ${studentName}</p>
+        <p>Age: ${age}</p>
+        <p>Phone: ${phone}</p>
+        <p>Email: ${email}</p>
+    `;
+});
+    </script>
+</body>
+</html>

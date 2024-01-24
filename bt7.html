@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+       .com{
+        border: 1px solid black; 
+        width: 200px;
+       }
+       button{
+        font-size: 25px;
+        padding: 10px;
+       }
+       input{
+        width: 190px;
+        height: 20px;
+       }
+    </style>
+</head>
+<body>
+   <div class="com">
+    <input type="text" id="result" readonly>
+    <table id="buttons" border="1">
+        <tr>
+        <td><button onclick="appendNumber('1')">1</button></td>
+        <td><button onclick="appendNumber('2')">2</button></td>
+        <td><button onclick="appendNumber('3')">3</button></td>
+        <td><button onclick="performOperation('+')">+</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="appendNumber('4')">4</button></td>
+        <td><button onclick="appendNumber('5')">5</button></td>
+        <td><button onclick="appendNumber('6')">6</button></td>
+        <td><button onclick="performOperation('-')">-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="appendNumber('7')">7</button></td>
+        <td><button onclick="appendNumber('8')">8</button></td>
+        <td><button onclick="appendNumber('9')">9</button></td>
+        <td><button onclick="performOperation('*')">*</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="appendNumber('0')">0</button></td>
+        <td><button onclick="clearResult()">AC</button></td>
+        <td><button onclick="calculateResult()">=</button></td>
+        <td><button onclick="performOperation('/')">/</button></td>
+    </tr>
+    </table>
+</div>
+    <script>
+        let currentResult = '';
+        let currentOperation = null;
+        let previousResult = '';
+
+    function appendNumber(number) {
+        currentResult += number;
+        updateResult();
+    }
+    function performOperation(operation) {
+        if (currentOperation !== null) calculateResult();
+        currentOperation = operation;
+        previousResult = currentResult;
+        currentResult = '';
+    }
+    function calculateResult() {
+        var result = eval(previousResult + currentOperation + currentResult);
+        currentResult = result;
+        currentOperation = null;
+        previousResult = '';
+        updateResult();
+    }
+    function clearResult() {
+        currentResult = '';
+        currentOperation = null;
+        previousResult = '';
+        updateResult();
+    }
+    function updateResult() {
+        document.getElementById('result').value = currentResult;
+    }
+</script>
+</body>
+</html>
+</body>
+</html>

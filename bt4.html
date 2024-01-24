@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Cách 1</h1>
+  <input type="text" id="number1" value="" onkeyup="sum1()">
+  <input type="text" id="number2" value="" onkeyup="sum1()">
+  <input type="text" id="total1" value="" readonly/>
+    <script>
+        function sum1(){ 
+          let input1 = document.getElementById("number1");
+          let input2 = document.getElementById("number2");
+          let result1 = document.getElementById("total1");
+          result1.value = parseInt(input1.value) + parseInt(input2.value);
+        }
+      </script>
+
+      <h1>Cách 2</h1>
+      <input type="text" id="number3" value="">
+      <input type="text" id="number4" value="">
+      <input type="text" id="total2" value="" readonly>
+      <button onclick="sum2()">sum</button>
+      <script>
+        function sum2(){
+          let input3 = document.getElementById("number3");
+          let input4 = document.getElementById("number4");
+          let result2 = document.getElementById("total2");
+          result2.value = parseInt(input3.value) + parseInt(input4.value);
+        }
+      </script>
+</body>
+</html>

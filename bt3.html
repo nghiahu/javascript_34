@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border:1px solid rgb(77, 73, 73);
+            height: 200px;
+            width: 600px;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cách 1</h1>
+    <script>
+        function addText1(){
+          let input = document.getElementById("input1");
+          let div = document.getElementById("div1");
+          div.innerHTML = input.value;
+        }
+      </script>
+      <input type="text" id="input1" onkeyup="addText1()"/>
+      <div id="div1"></div>
+      <h1>Cách 2</h1>
+      <script>
+        function addText2(){
+          let input = document.getElementById("input2");
+          let div = document.getElementById("div2");
+          div.innerHTML = input.value;
+        }
+      </script>
+      <input type="text" id="input2" value=""/>
+      <button onclick="addText2()">addText</button>
+      <div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: rgb(85, 202, 85);
+            font-size: 30px;
+            color: rgb(65, 64, 64);
+            padding: 20px;
+            border-radius:25%;
+            border:1px solid  rgb(85, 202, 85);
+            display: flex;
+        }
+        div{
+            display:flex ;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+            
+    </style>
+</head>
+<body>
+    <div>
+    <button id="but" onclick="change()">OFF</button>
+    <script>
+        function change (){
+            let butchange = document.getElementById("but");
+            if (butchange.innerHTML === "OFF") {
+                butchange.innerHTML = "ON";
+            } else {
+                butchange.innerHTML = "OFF";
+            }
+                }
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            color: rgb(75, 66, 66);
+            display: flex;
+            align-items: center;
+            gap:10px;
+        }
+        input{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creat new Item</h1>
+    <div style="display: flex;padding-left:20px ;">
+    <p>item</p>
+    <input  id="input">
+   <button onclick="addItem()">Add</button>
+</div>
+   <ul id="List">
+    <li>Nho mỹ</li>
+    <li>Táo tàu</li>
+   </ul>
+   <script>
+    function addItem() {
+    let inp = document.getElementById("input").value;
+    if (inp.trim() !== "") {
+        let list = document.createElement("li");
+        list.appendChild(document.createTextNode(inp));
+        document.getElementById("List").appendChild(list);
+        document.getElementById("input").value = "";
+        input.style.backgroundColor = "yellow"
+    }
+    }
+    let input= document.querySelector("input");
+        input.addEventListener("input",function(event){
+            input.style.backgroundColor="white";
+            if (input.value=="") {
+                input.style.backgroundColor="yellow"; 
+            }
+        });
+   </script>
+</body>
+</html>
